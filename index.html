@@ -68,10 +68,10 @@
         	</div><!-Header End>
         	<section data-role="content" data-theme="b">
 					<form action="" method="post" id="addForm" >	        	        		        	
-			        	<div data-role="fieldcontain">
+			        	
 			        		<ul id="formFeilds">
 								<li><p id="rqf"><small>* = required field</small></p><label for="formFirstName">First Name:*<br><small>ex: John</small></label>
-						        <input type="text"  name="formFirstName" id="formFirstName"  data-clear-btn="true" class="required" /></li>				        	
+						        <input class="required" type="text"  name="formFirstName" id="formFirstName"  data-clear-btn="true" class="required" /></li>				        	
 						        <li><label for="formLastName">Last Name:*<br><small>ex: Smith</small></label>
 						        <input type="text" name="formLastName" id="formLastName" data-clear-btn="true" class="required"/></li>					        	
 						        <li><label for="formEmail" >Email:*<br><small>ex: me@gmail.com</small></label>
@@ -79,14 +79,14 @@
 						        <li><label for="formPhone" >Phone Number:*<br><small>ex: 000-111-2222</small></label>
 						        <input type="tel" name="formPhone" id="formPhone" data-clear-btn="true" class="required"/></li>
 							</ul>
-			        	</div>
+			        	
 				        <br>
 				        <br>
 				        
 				        <input type="submit"  id="submit" value="Submit"  data-theme="a"/>
 				        <br>
 				        <pre>  <a href="#home" id="myCancel" style="text-decoration:underline;  text-align:center; font-size:12pt;">Cancel</a>  /  <a href="#" id="clearMy" style="text-decoration:underline; text-align:center; font-size:12pt;">Clear Stored Data</a></pre>
-				        <div hidden >
+				        <div hidden="" >
 				        <a href="#errorPage"  id="addFormErrorLink" data-rel="dialog" data-transition="pop">Open Errors</a>
 				        </div>
 			        </div>
