@@ -1,4 +1,4 @@
-var info = {
+{
 	"estimate1": {
 		"formFirstName": ["First Name","Brian"],
 		"formLastName": ["Last Name","Smith"],
