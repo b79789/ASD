@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <items>
     <item>
         <name1>Jon</name1>
         <name2>Smith</name2>
         <email>test@me.com</email>
+        <phone>999-999-9999</phone>
+    </item>
+    <item>
+        <name1>fred</name1>
+        <name2>sanford</name2>
+        <email>fred@me.com</email>
+        <phone>999-999-9999</phone>
+    </item>
+    <item>
+        <name1>Barney</name1>
+        <name2>Rubble</name2>
+        <email>Tuffguy@me.com</email>
+        <phone>999-999-9999</phone>
+    </item>
+    <item>
+        <name1>Money</name1>
+        <name2>Mike</name2>
+        <email>pimpn@me.com</email>
+        <phone>999-999-9999</phone>
+    </item>
+    <item>
+        <name1>ric</name1>
+        <name2>james</name2>
+        <email>bitchslap@me.com</email>
         <phone>999-999-9999</phone>
     </item>
 </items> 
