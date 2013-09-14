@@ -16,6 +16,18 @@
  "formLastName": ["Last Name","Well"],
  "formEmail": ["Email" ,"mytest@me.com"],
  "formPhone": ["Phone" ,"000-000-5555"]
+},
+ "estimate4": {
+ "formFirstName": ["First Name","ric"],
+ "formLastName": ["Last Name","fox"],
+ "formEmail": ["Email" ,"mytest@me.com"],
+ "formPhone": ["Phone" ,"000-000-5555"]
+},
+ "estimate5": {
+ "formFirstName": ["First Name","jane"],
+ "formLastName": ["Last Name","dozer"],
+ "formEmail": ["Email" ,"mytest@me.com"],
+ "formPhone": ["Phone" ,"000-000-5555"]
 }
 
 }
