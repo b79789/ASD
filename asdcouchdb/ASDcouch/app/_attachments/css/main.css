@@ -1,0 +1,13 @@
+/*
+	Brian Stacks
+	ASD--1309
+	9/4/2013
+*/
+
+.display {
+	margin: 15px;
+	padding: 10px;
+	background: #b9daee;
+	border-radius: 3px;
+	min-height: 100px;
+}
