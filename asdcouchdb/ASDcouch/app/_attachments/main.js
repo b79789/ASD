@@ -1,7 +1,6 @@
 $(document).on('pageinit', function () {
-   
-    
-    function validate() {
+
+	function validate() {
         var valForm = $("#addForm"),
             myFormErrorLink = $("#addFormErrorLink");
 
@@ -19,7 +18,7 @@ $(document).on('pageinit', function () {
 
                 $("#errorPage ul").html(html);
             },
-            submitHandler: function() {
+            submitHandler: function () {
                 var data = valForm.serializeArray();
                 parseAddForm(data);
 
@@ -37,39 +36,10 @@ $(document).on('pageinit', function () {
         myItem.formEmail = ["Email:", $("#formEmail").val()];
         myItem.formPhone = ["Phone Number", $("#formPhone").val()];
         //Save data to local storage Use stringify to covert object
-        //localStorage.setItem(myId, JSON.stringify(myItem));
-        $.couch.db("asdproject").saveDoc(myItem,function(){
-        	success: function(){
-        		console.log("Data has been saved " + myItem)
-        	},
-        	error: function(){
-        		console.log(Data ha not neen saved)
-        	}
-        })
+        localStorage.setItem(myId, JSON.stringify(myItem));
         alert("Reservation Saved!");
     };
-
-        function showItems() {
-            for (var i in localStorage) {
-                console.log(localStorage[i]);
-            }
-
-            for (i = 0, len = localStorage.length; i < len; i++) {
-                var key = localStorage.key(i);
-                var value = localStorage[key];
-                console.log(key + " => " + value);
-            }
-        }
-
-
-        function clearUserData() {
-            $.couch.db("asdproject").removeDoc()
-        }
-        
-        var clearData = $("#clearMy");
-    clearData.on("click", clearUserData);
-    
-})
+   
     $.ajax({
     	"url":"_view/name",
     	"dataType": "json",
@@ -111,4 +81,6 @@ $(document).on('pageinit', function () {
     		$("#dataView").listview("refresh");
     	}
     });
+    var submitData = $("#submit");
+    submitData.on("click", validate);
 });
