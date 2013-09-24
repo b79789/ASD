@@ -39,6 +39,54 @@ $(document).on('pageinit', function () {
         localStorage.setItem(myId, JSON.stringify(myItem));
         alert("Reservation Saved!");
     };
+    
+    function showItems() {
+            for (var i in localStorage) {
+                console.log(localStorage[i]);
+            }
+
+            for (i = 0, len = localStorage.length; i < len; i++) {
+                var key = localStorage.key(i);
+                var value = localStorage[key];
+                console.log(key + " => " + value);
+            }
+        }
+        
+        function clearUserData() {
+            if (localStorage.length === 0) {
+                alert("There is no data!");
+            } else {
+                localStorage.clear();
+                alert("All info wiped!");
+                window.location.reload();
+                return false;
+            }
+        }
+        
+        $("#showMyInfo").on("click", function(e){
+			e.preventDefault();
+			var fName = $("#formFirstName").val();
+			var lName = $("#formLastName").val();
+			var eMail = $("#formEmail").val();
+			var pNum = $("#formPhone").val();
+				$("#display ul").html("<li> " + '  First Name: '  + fName + "<br>" + '  Last Name:  ' +  lName  + "<br>" +'  Email:  ' + eMail + "<br>" +'  Phone Number:  ' + pNum + "</li>");
+})	
+        $("#data1").on("click", function () {
+            $.ajax({
+                url: "js/JSON.js",
+                type: "GET",
+                dataType: "json",
+                success: function (data, status) {
+                	var obj = $.parseJSON(JSON.stringify(data));
+                    console.log( obj, status);
+                    $("#display ul").html("<li> " + JSON.stringify(data) + "</li>");
+                },
+                error: function (error, parseerror) {
+                    console.log(error, parseerror);
+                }
+            });
+
+        });
    
     $.ajax({
     	"url":"_view/name",
@@ -83,4 +131,7 @@ $(document).on('pageinit', function () {
     });
     var submitData = $("#submit");
     submitData.on("click", validate);
+    
+    var clearData = $("#clearMy");
+    clearData.on("click", clearUserData);
 });
