@@ -19,7 +19,7 @@ $(document).on('pageinit', function () {
 
                 $("#errorPage ul").html(html);
             },
-            submitHandler: function () {
+            submitHandler: function() {
                 var data = valForm.serializeArray();
                 parseAddForm(data);
 
@@ -63,7 +63,7 @@ $(document).on('pageinit', function () {
 
 
         function clearUserData() {
-            $.couch.db("asdproject").removeDoc()
+            $.couch.db("rwssiding").removeDoc()
         }
         
         var clearData = $("#clearMy");
