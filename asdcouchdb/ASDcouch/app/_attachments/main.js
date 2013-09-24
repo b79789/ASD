@@ -38,7 +38,7 @@ $(document).on('pageinit', function () {
         myItem.formPhone = ["Phone Number", $("#formPhone").val()];
         //Save data to local storage Use stringify to covert object
         //localStorage.setItem(myId, JSON.stringify(myItem));
-        $.couch.db("rwssiding").saveDoc(myItem,function(){
+        $.couch.db("asdproject").saveDoc(myItem,function(){
         	success: function(){
         		console.log("Data has been saved " + myItem)
         	},
@@ -63,7 +63,7 @@ $(document).on('pageinit', function () {
 
 
         function clearUserData() {
-            $.couch.db("rwssiding").removeDoc()
+            $.couch.db("asdproject").removeDoc()
         }
         
         var clearData = $("#clearMy");
