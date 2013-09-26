@@ -1,5 +1,7 @@
 $(document).on('pageinit', function () {
-
+	
+	
+	
 	function validate() {
         var valForm = $("#addForm"),
             myFormErrorLink = $("#addFormErrorLink");
@@ -52,15 +54,17 @@ $(document).on('pageinit', function () {
             }
         }
         
-        function clearUserData() {
-            if (localStorage.length === 0) {
-                alert("There is no data!");
-            } else {
-                localStorage.clear();
-                alert("All info wiped!");
-                window.location.reload();
-                return false;
+        function clearUserData(key) {
+            $.couch.db("asdproject").removeDoc(key, function(){
+	            var mynewobj = {
+	            success: function(){
+		            console.log("deleted!");
+	            },
+	            error: function(){
+		            console.log("Not deleted");
+	            }
             }
+            })
         }
         
         $("#showMyInfo").on("click", function(e){
@@ -69,24 +73,10 @@ $(document).on('pageinit', function () {
 			var lName = $("#formLastName").val();
 			var eMail = $("#formEmail").val();
 			var pNum = $("#formPhone").val();
-				$("#display ul").html("<li> " + '  First Name: '  + fName + "<br>" + '  Last Name:  ' +  lName  + "<br>" +'  Email:  ' + eMail + "<br>" +'  Phone Number:  ' + pNum + "</li>");
-})	
-        $("#data1").on("click", function () {
-            $.ajax({
-                url: "js/JSON.js",
-                type: "GET",
-                dataType: "json",
-                success: function (data, status) {
-                	var obj = $.parseJSON(JSON.stringify(data));
-                    console.log( obj, status);
-                    $("#display ul").html("<li> " + JSON.stringify(data) + "</li>");
-                },
-                error: function (error, parseerror) {
-                    console.log(error, parseerror);
-                }
-            });
+				$("#display ul").html("<div data-role='collapsible-set'>" + "<li>" + "<a href='#'>" +"<section data-role='collapsible'>"+'  First Name: '  + fName + "</a>"+"</section>" +"<br>" + "<li>" + "<a href='#'>" +"<section data-role='collapsible'>"+'  Last Name:  ' +  lName  +"</a>"+"</section>" + "<br>" +"<li>" + "<a href='#'>" +"<section data-role='collapsible'>"+'  Email:  ' + eMail + "</a>"+"</section>" +"<br>" +"<li>" + "<a href='#'>" +"<section data-role='collapsible'>"+'  Phone Number:  ' + pNum + "</a>"+"</section>" + "</a>"+ "</li>" + "</div>");
+})
 
-        });
+    
    
     $.ajax({
     	"url":"_view/name",
@@ -132,6 +122,14 @@ $(document).on('pageinit', function () {
     var submitData = $("#submit");
     submitData.on("click", validate);
     
-    var clearData = $("#clearMy");
-    clearData.on("click", clearUserData);
+    $(".delete").on("click", function(){
+    	var id = $(this).data("id");
+    	var rev = $(this).data("rev");
+    	
+    	var key = {};
+    	key._id= id;
+    	key._rev = rev;
+    	deleteData(key);
+    	alert("Deleted!");
+    })
 });
